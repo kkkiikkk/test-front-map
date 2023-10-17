@@ -81,8 +81,8 @@ export default {
 
         return arr;
       })
-      console.log(points)
-      axios.post(`http://localhost:1337/api/plots`, {
+      
+      await axios.post(`http://localhost:1337/api/plots`, {
         data: {
           level: this.newPlot.level,
           points
@@ -91,7 +91,7 @@ export default {
         headers: {
           Authorization: `Bearer 3c6fe90c9d56419452691a3f05b6a818e300b953508755f21e7ed99711668d7c525a4300a7354f5c8646c96b7a8349a9975cce6392d0e7b3ec758ea64729bd012a8cc320516ffd23f33d118cc72e73af5712f7394653da3ba7d4e568c8c857f4d1cc6d87ab9155181a96b4c370abf68dd31ddf239e27cdeaed16d48c8dbf0662`
         }
-      }).then().catch()
+      })
 
       this.close()
       this.$emit('setplots', await this.getPlots())
